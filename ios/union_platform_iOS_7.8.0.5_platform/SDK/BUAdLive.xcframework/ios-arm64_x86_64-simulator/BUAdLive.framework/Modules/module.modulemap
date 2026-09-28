@@ -1,0 +1,6 @@
+framework module BUAdLive {
+  umbrella header "BUAdLive.h"
+
+  export *
+  module * { export * }
+}

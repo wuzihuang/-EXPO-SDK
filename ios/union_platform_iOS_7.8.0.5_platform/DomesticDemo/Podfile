@@ -1,0 +1,37 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '15.0'
+
+workspace 'BUADDemo.xcworkspace'
+
+abstract_target 'Demo' do
+    pod 'Masonry'
+    pod 'MBProgressHUD'
+    pod 'MJRefresh'
+    pod 'SDWebImage'
+
+    target 'BUADDemo' do
+      project 'BUADDemo.xcodeproj'
+      # 本target相较于BUADDemo Target多了聚合维度功能展示
+      # 包含Ads-CN的依赖和demo接入代码
+      pod 'BUDemoSource', :path => '../'
+      # 聚合维度其他家ADN的引入 版本支持请以”接入文档->前置说明“中为准，请不要更换GroMoreSDK不支持的三方sdk版本，引用了哪些adapter, 请相应地引入这些adapter对应的adn的广告SDK
+      # 百度SDK
+      pod 'BaiduMobAdSDK', '10.060'
+      # 广点通/优量汇
+      pod 'GDTMobSDK', '4.16.10'
+      # SigmobAd
+      pod 'SigmobAd-iOS', '5.1.4'
+      # 快手
+      pod 'KSAdSDK', '5.7.20.1'
+
+  
+      end
+end
+
+post_install do |pi|
+    pi.pods_project.targets.each do |t|
+        t.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+        end
+    end
+end

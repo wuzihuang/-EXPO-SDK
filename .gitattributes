@@ -1,0 +1,2 @@
+ios/union_platform_iOS_7.8.0.5_platform/SDK/BUAdSDK.xcframework/ios-arm64/BUAdSDK.framework/BUAdSDK filter=lfs diff=lfs merge=lfs -text
+ios/union_platform_iOS_7.8.0.5_platform/SDK/BUAdSDK.xcframework/ios-arm64_x86_64-simulator/BUAdSDK.framework/BUAdSDK filter=lfs diff=lfs merge=lfs -text
